@@ -19,6 +19,7 @@ button.addEventListener("click", function() {
       }
     })
     .then((jsonResponse) => {
+      //   console.log(jsonResponse);
       let user = jsonResponse.results;
       let name = user[0].name;
       let location = user[0].location;
@@ -26,15 +27,13 @@ button.addEventListener("click", function() {
         name.last
       }. I was born in the city of ${
         location.city
-      }, I still live there BTW, so if you want to send me a gift any time soon, my address is " ${
+      }, I still live there BTW, so if you want to send me a gift any time soon, my address is ${
         location.street.name
       }, number ${location.street.number}.`;
       let picture = user[0].picture.large;
 
       userPic.src = picture;
       bio.innerHTML = greeting;
-
-      console.log(picture);
     })
     .catch((error) => {
       alert("Ouch!! The AI factory was hacked!! Run for your life now!!");
@@ -44,7 +43,6 @@ button.addEventListener("click", function() {
 
 // let user = {
 //   results: [
-
 //     {
 //       gender: "female",
 //       name: { title: "Ms", first: "Amalie", last: "Sørensen" },
